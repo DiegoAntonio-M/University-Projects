@@ -17,7 +17,7 @@ public class App {
         System.out.printf("Digite o número inicial: ");
         numini = leitura.nextInt();
 
-        System.out.printf("Digite a quantidade do(s) próximo(s) número(s) a serem verificados: ");
+        System.out.printf("Digite a quantidade do(s) próximo(s) número(s) a ser(em) verificado(s): ");
         numate = numini + leitura.nextInt();
 
         leitura.close();
