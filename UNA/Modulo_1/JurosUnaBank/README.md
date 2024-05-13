@@ -1,11 +1,11 @@
 # Una Bank
-Esse Projeto Java criada no VS Code tem como o objetivo de exercitar funções matemáticas, compatibilidade de tipos de variáveis e diferenças entre os valores sultantes de cada operação para saber a margem de diferença entre cada método.
+Esse Projeto Java criado no VS Code tem como o objetivo de exercitar funções matemáticas, compatibilidade de tipos de variáveis e diferenças entre os valores resultantes de cada operação para saber a margem de diferença entre cada método.
 
 Aqui está um guia das disposições dos arquivos do Projeto Java "UnaBank" feita no Visual Studio Code.
 
 ## Estrutura das Pastas
 
-The workspace contains two folders by default, where:
+O espaço de trabalho possui 2 pastas padrões aonde se armazena os recursos:
 
 - `src`: a pasta para manter os recursos principais
 - `lib`: a pasta para manter as dependências principais

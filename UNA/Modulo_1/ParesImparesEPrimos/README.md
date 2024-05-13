@@ -1,10 +1,10 @@
 # Números Primos, Pares e Ímpares
 
-Esse Projeto Java criada no VS Code tem como o objetivo de exercitar operadores matemáticos como o resto (%), 'for' dentro de 'for', e um algorítimo que procura números prímos.
+Esse Projeto Java criado no VS Code tem como o objetivo de exercitar operadores matemáticos como o resto (%), 'for' dentro de 'for', e um algoritmo que procura números primos.
 
 ## Estrutura das Pastas
 
-The workspace contains two folders by default, where:
+O espaço de trabalho possui 2 pastas padrões aonde se armazena os recursos:
 
 - `src`: a pasta para manter os recursos principais
 - `lib`: a pasta para manter as dependências principais
