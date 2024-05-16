@@ -185,8 +185,8 @@ int main() {
         
     }
 
-    if (valorEncontrado = 0 ) {
-        printf("Não foi encontrado nenhum valor correspondete!!!\n");
+    if (valorEncontrado == 0 ) {
+        printf("Não foi encontrado nenhum valor correspondete!!!");
     }
 
     printf("\n\n");
