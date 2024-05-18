@@ -1,3 +1,10 @@
+// Fazer uma lista para 6 números;
+// Eles verão ser preenchidos pelo usuário;
+// Mostre os números pares digitados;
+// Mostre a soma dos números pares digitados;
+// Os números ímpares digitados;
+// A quantidade de números ímpares digitados.
+
 # include <stdio.h>
 
 int main() {

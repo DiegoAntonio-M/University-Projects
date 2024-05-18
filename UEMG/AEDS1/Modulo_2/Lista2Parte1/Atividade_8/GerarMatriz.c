@@ -1,3 +1,16 @@
+// Declare uma Matriz 5x5;
+// Faça o usuário preencher essa matriz;
+// Mostrar a Matriz Digitada;
+// Fornecer um campo de busca por um valor na matriz;
+// >> Caso encontre deverá retornar à localização na matriz;
+// >> Caso não encontre Deverá retornar "não encontrado";
+//
+// Após isso gere uma matriz 10x10, com os elementos seguindo a seguinte regra:
+// A_(i,j) = 2*i + 7*j - 2 ,     se i < j;
+// A_(i,j) = 3*(i)^2 - 1 ,       se i = j;
+// A_(i,j) = 4*(i)^3 - 5*(j)^2 , se i > j;
+// Mostre a matriz 10x10 gerada com a regra acima.
+
 # include <stdio.h>
 # include <math.h>
 # include <stdlib.h>
@@ -108,7 +121,11 @@ int main() {
                         }            
                         if (matriz1[t][tt] < 0) {
                             tamanhoCelulaUnitaria++;
-                        }            
+                        }
+
+                        if (y < tt && t == z) {
+                            tamanhoCelulaUnitaria++;
+                        }              
 
                         if (tamanhoCelulaUnitaria > maiorTamanhoColuna) {
                             maiorTamanhoColuna = tamanhoCelulaUnitaria;                
@@ -149,11 +166,17 @@ int main() {
                             printf("-");
                         }
                     }
+
                     printf("-\n");
 
                     for (int ii = 0; ii < tamanhoColuna; ii++) {
                             
-                            printf("|");
+                            if (y < ii && z == i) {
+                                printf("|<");
+                            } else {
+                                printf("|");
+                            }
+
                             for (int t = 0; t < tamanhoColunaColuna[ii] - tamanhoColunaExibicao[i][ii]; t++) {
                                 printf(" ");
                             }
@@ -177,6 +200,7 @@ int main() {
                                 printf("-");
                             }
                         }
+
                         printf("-\n");  
                     }
                 }

@@ -1,5 +1,5 @@
 // Criar um vetor de 50 elementos;
-// Para a  posição i será: f(i) = i + i^2;
+// Para a posição i será: f(i) = i + i^2;
 // Registre f(i) em cada posição (Usando laço);
 // Imprima as posições ímpares do vetor e seus valores (Usando laço);
 // Imprima todas as posições e seus valores (Usando laço);

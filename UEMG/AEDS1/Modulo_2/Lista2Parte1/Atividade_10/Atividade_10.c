@@ -1,8 +1,21 @@
+// Declare uma matriz 5x4;
+// As 4 colunas são para as seguintes informações (tipo inteiros):
+// >> 1ª Coluna: RA do Aluno;
+// >> 2ª Coluna: Média das Provas;
+// >> 3ª Coluna: Média dos trabalhos;
+// >> 4ª Coluna: Nota Final;
+// Pessa ao Usuário que insira as 3 primeiras informações:
+// >> RA, Média da Prova, Média dos Trabalhos.
+// Calcule a nota final sendo a soma das Provas e Trabalhos;
+// Encontre o aluno que obteve a maior nota;
+// Mostre o Aluno que obteve a maior nota (Mostre o primeiro aluno que encontrar);
+// Informe a média aritmética das notas finas.
+
 # include <stdio.h>
 
 int main() {
 
-    int quantidadeDeAlunos = 3;
+    int quantidadeDeAlunos = 5;
     int quantidadeDeColunas = 4;
     int somaDasNotasFinais = 0;
     double mediasDasNotasFinais = 0;

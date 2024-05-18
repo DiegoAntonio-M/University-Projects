@@ -1,3 +1,10 @@
+// Declare uma matriz 3x6;
+// Faça o usuário inserir os valores;
+// Mostre a soma dos itens das colunas ímpares;
+// Mostre a média aritmética da coluna 2 e da coluna 4;
+// Substitua a coluna 6, pela soma da coluna 1 e 2;
+// Mostre a matriz com as modificações da substituição.
+
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>

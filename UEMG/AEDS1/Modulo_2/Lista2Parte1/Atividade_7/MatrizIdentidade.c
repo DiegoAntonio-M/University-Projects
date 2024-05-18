@@ -1,3 +1,6 @@
+// Declare uma matriz quadrada 5x5;
+// Faça uma matriz identidade, sendo a diagonal principal com os valores 1 e os demais 0.
+
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>

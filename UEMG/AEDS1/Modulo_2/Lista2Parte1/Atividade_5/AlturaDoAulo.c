@@ -1,3 +1,9 @@
+// Ler 10 conjuntos de valores;
+// Cada conjunto será composto por: ID do aluno e o segundo a sua altura;
+// Os valores deverão ser inseridos pelo usuário;
+// Mostra a maior altura juntamente com o ID do aluno;
+// Mostra a menor altura juntamente com o ID do aluno.
+
 # include <stdio.h>
 
 int main() {

@@ -4,7 +4,7 @@
 // [2] Calcular o produto dos itens das respecitvas posições do 'vetorX' e 'vetorY';
 // [3] Calcular a diferença dos itens das respecitvas listas do 'vetorX' e 'vetorY';
 // [4] Calcular a interseção das posições do 'vetorX' e 'vetorY' aonde os itens tem o mesmo valor;
-// [5] Criar a uninão dos dois valores;
+// [5] Criar a união dos dois valores;
 // Mostre os resultados das operações acima: [1] ... [5].
 
 # include <stdio.h>

@@ -1,3 +1,7 @@
+// Ler 10 números do usuário;
+// Todos terão que ser diferentes;
+// Mostre o vetor com a posição e o número guardado.
+
 # include <stdio.h>
 
 int main() {

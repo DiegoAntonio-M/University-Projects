@@ -1,9 +1,14 @@
+// Fazer uma listagem de 10 valores;
+// Deverão ser inseridas pelo usuário;
+// E ao mesmo tempo que inserido deverá organizar a lista em ordem crescente;
+// Mostre os itens dos vetores em ordem.
+
 # include <stdio.h>
 
 int main() {
 
     int tamanhoVetor = 10;
-    int vetor[tamanhoVetor];
+    int vetor[tamanhoVetor] = {};
     int numeroAuxiliar = 0;
     int contarMovimentacoes = 0;
     int contarCiclos = 0;
