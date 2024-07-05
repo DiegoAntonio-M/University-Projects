@@ -61,8 +61,8 @@ int main () {
             contarRodada++;
             caractersAnterior[1] = caractersAnterior[0];
             caractersAnterior[0] = numeroASerGuardado;            
-        } else {
-            printf("Escolha outra posição!!!\n\n");
+        } else {            
+            (configuração[1] == 0) ? printf("Escolha outra posição!!!\n\n") : printf("Escolha outra posição!!!\nNo modo infinito espere que todas sejam ocupadas para poder sobrepor!!!\n\n");
         }
 
         for (int i = 0; i < 3; i++) {
@@ -101,7 +101,7 @@ int main () {
         for (int i = 0; i < 3; i++) {
 
             if ((tableSudoko[0][i][0] == tableSudoko[1][i][0]) && (tableSudoko[1][i][0] == tableSudoko[2][i][0])) {
-                if (tableSudoko[i][0][1] == 1 && tableSudoko[i][1][1] == 1 && tableSudoko[i][2][1] == 1) {
+                if (tableSudoko[0][i][1] == 1 && tableSudoko[1][i][1] == 1 && tableSudoko[2][i][1] == 1) {
                     vitoria[0] = 1;
                     vitoria[1] = tableSudoko[2][i][0];
                 }  
