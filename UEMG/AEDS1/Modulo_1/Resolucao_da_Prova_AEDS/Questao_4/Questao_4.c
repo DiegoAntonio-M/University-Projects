@@ -37,7 +37,7 @@ int main() {
     if (IMC < 18.5) {
         printf(" - Abaixo do Peso.\n");
     } else if ((18.5 <= IMC)|| (IMC < 25)) {
-        printf(" - Saudavel do Peso.\n");
+        printf(" - Saudavel.\n");
     } else if ((25 <= IMC)|| (IMC < 30)) {
         printf(" - Peso em Excesso.\n");
     } else if ((30 <= IMC)|| (IMC < 35)) {
