@@ -1,3 +1,6 @@
+// Somar todos os números abaixo de 2000;
+// Todos esses números serão multiplos de 3 ou 5;
+
 # include <stdio.h>
 
 int main() {
@@ -11,6 +14,7 @@ int main() {
         }        
     }
     
-    printf("Os numeros somados abaixo de %d eh %d", numeroAte, resultado);
+    printf("Os numeros somados abaixo de %d eh: %d", numeroAte, resultado);
+
     return 0;
 }
