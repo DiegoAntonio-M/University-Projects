@@ -13,7 +13,7 @@
 
 int main () {
 
-    int n = 1;
+    int n = -1;
     int contar = 0;
     double soma = 0;
     double media = 0;
@@ -53,18 +53,18 @@ int main () {
 
                 if (n < maiorN) {
                     segundoMaiorN = n;
+                    contAtributMenorESegundo += 2;
                 }
 
-                contAtributMenorESegundo ++;               
             }
                         
             if ((n < segundoMenorN) || (contAtributMaiorESegundo == 2)) {
 
                 if (n > menorN) {
                     segundoMenorN = n;
+                    contAtributMaiorESegundo += 2; 
                 }
 
-                contAtributMaiorESegundo ++;           
             } 
         }        
     }
