@@ -27,7 +27,7 @@ int alocarArray(arrayModulavel *array, int adicao, int limite) {
     return 0;
 }
 
-int comletarCriacaoArray (arrayModulavel *array1, int tamanhoInicial) {
+int completarCriacaoArray (arrayModulavel *array1, int tamanhoInicial) {
     (tamanhoInicial < 1) ? tamanhoInicial = 1 : tamanhoInicial;
     array1->tamanhoArray = tamanhoInicial;
     array1->array = malloc(array1->tamanhoArray * sizeof(int));
@@ -92,15 +92,15 @@ int somarArrays (arrayModulavel *array1, arrayModulavel *array2, arrayModulavel 
 int main() {
 
     arrayModulavel arrayA = {};
-    comletarCriacaoArray(&arrayA, 3);
+    completarCriacaoArray(&arrayA, 3);
     preencherArray(&arrayA, 'A');
 
     arrayModulavel arrayB = {};
-    comletarCriacaoArray(&arrayB, 3);
+    completarCriacaoArray(&arrayB, 3);
     preencherArray(&arrayB, 'B');
 
     arrayModulavel arrayC = {};
-    comletarCriacaoArray(&arrayC, arrayA.tamanhoArray);
+    completarCriacaoArray(&arrayC, arrayA.tamanhoArray);
 
     if (somarArrays(&arrayA, &arrayB, &arrayC)) {
         for (int i = 0; i < arrayC.tamanhoArray; i++) {

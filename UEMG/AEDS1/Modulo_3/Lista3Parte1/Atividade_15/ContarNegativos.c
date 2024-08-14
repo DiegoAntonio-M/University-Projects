@@ -27,7 +27,7 @@ int alocarArray(arrayModulavel *array, int adicao, int limite) {
     return 0;
 }
 
-int comletarCriacaoArray(arrayModulavel *array1, int tamanhoInicial) {
+int completarCriacaoArray(arrayModulavel *array1, int tamanhoInicial) {
     (tamanhoInicial < 1) ? tamanhoInicial = 1 : tamanhoInicial;
     array1->tamanhoArray = tamanhoInicial;
     array1->array = malloc(array1->tamanhoArray * sizeof(int));
@@ -81,7 +81,7 @@ int negativos(float *vet, int N) {
 int main() {
 
     arrayModulavel numerosN = {};
-    comletarCriacaoArray(&numerosN, 1);
+    completarCriacaoArray(&numerosN, 1);
 
     preencherArray(&numerosN, 'N');
 

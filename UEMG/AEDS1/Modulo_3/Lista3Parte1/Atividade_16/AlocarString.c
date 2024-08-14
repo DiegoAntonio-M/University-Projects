@@ -32,7 +32,7 @@ int alocarArray(arrayModulavel *array, int adicao, int limite) {
     return 0;
 }
 
-int comletarCriacaoArray (arrayModulavel *array1, int tamanhoInicial) {
+int completarCriacaoArray (arrayModulavel *array1, int tamanhoInicial) {
     (tamanhoInicial < 1) ? tamanhoInicial = 1 : tamanhoInicial;
     array1->tamanhoArray = tamanhoInicial;
     array1->array = malloc(array1->tamanhoArray * sizeof(char));
@@ -74,7 +74,7 @@ int main() {
     fputs("Digite a quantidade maxina de caracteres para sua frase: ", stdout);
     int quantCaracteres = 0;
     scanf("%d", &quantCaracteres);
-    comletarCriacaoArray(&frase, quantCaracteres + 2);
+    completarCriacaoArray(&frase, quantCaracteres + 2);
 
     fputs("Digite a sua frase: ", stdout);
     inserirTexto(frase.array, quantCaracteres);
