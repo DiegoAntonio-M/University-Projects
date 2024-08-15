@@ -79,8 +79,29 @@ int main() {
     fputs("Digite a sua frase: ", stdout);
     inserirTexto(frase.array, quantCaracteres);
 
-    fputs("A sua frase eh: ", stdout);
-    fputs(frase.array, stdout);
-
+    fputs("A sua frase sem vogais eh: ", stdout);
+    for (int i = 0; i < strlen(frase.array); i++) {
+        switch (frase.array[i]) {
+        case 'a':
+            printf("_ ");
+            break;
+        case 'e':
+            printf("_ ");
+            break;
+        case 'i':
+            printf("_ ");
+            break;
+        case 'o':
+            printf("_ ");
+            break;
+        case 'u':
+            printf("_ ");
+            break;
+        default:
+            printf("%c ", frase.array[i]);
+            break;
+        }        
+    }
+    
     return 0;
 }
