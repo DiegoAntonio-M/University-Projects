@@ -1,0 +1,20 @@
+=========== #1 Aluno Cadastrado ===========
+Nome: Teste A
+Nota: 100
+
+=========== #2 Aluno Cadastrado ===========
+Nome: Teste B
+Nota: 87
+
+=========== #3 Aluno Cadastrado ===========
+Nome: Teste C
+Nota: 12
+
+=========== #4 Aluno Cadastrado ===========
+Nome: Teste D
+Nota: 96
+
+=========== #5 Aluno Cadastrado ===========
+Nome: Teste F
+Nota: 12
+
