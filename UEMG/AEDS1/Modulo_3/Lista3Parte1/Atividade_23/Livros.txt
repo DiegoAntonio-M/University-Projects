@@ -1,0 +1,50 @@
+#Dom Quixote @Miguel de Cervantes
+#Guerra e Paz @Liev Tolstói
+#1984 @George Orwell
+#O Senhor dos Anéis @J.R.R. Tolkien
+#Orgulho e Preconceito @Jane Austen
+#Moby Dick @Herman Melville
+#Cem Anos de Solidão @Gabriel García Márquez
+#O Grande Gatsby @F. Scott Fitzgerald
+#Crime e Castigo @Fiódor Dostoiévski
+#O Apanhador no Campo de Centeio @J.D. Salinger
+#A Revolução dos Bichos @George Orwell
+#Ulisses @James Joyce
+#A Metamorfose @Franz Kafka
+#O Sol é Para Todos @Harper Lee
+#O Estrangeiro @Albert Camus
+#O Nome da Rosa @Umberto Eco
+#O Processo @Franz Kafka
+#O Morro dos Ventos Uivantes @Emily Brontë
+#As Aventuras de Huckleberry Finn @Mark Twain
+#O Retrato de Dorian Gray @Oscar Wilde
+#A Divina Comédia @Dante Alighieri
+#O Conde de Monte Cristo @Alexandre Dumas
+#Os Miseráveis @Victor Hugo
+#A Odisséia @Homero
+#A Ilíada @Homero
+#O Pequeno Príncipe @Antoine de Saint-Exupéry
+#O Código Da Vinci @Dan Brown
+#Harry Potter e a Pedra Filosofal @J.K. Rowling
+#O Hobbit @J.R.R. Tolkien
+#A Menina que Roubava Livros @Markus Zusak
+#O Diário de Anne Frank @Anne Frank
+#O Alquimista @Paulo Coelho
+#O Velho e o Mar @Ernest Hemingway
+#A Arte da Guerra @Sun Tzu
+#O Príncipe @Nicolau Maquiavel
+#O Senhor das Moscas @William Golding
+#A Montanha Mágica @Thomas Mann
+#O Lobo da Estepe @Hermann Hesse
+#O Médico e o Monstro @Robert Louis Stevenson
+#Drácula @Bram Stoker
+#Frankenstein @Mary Shelley
+#Jane Eyre @Charlotte Brontë
+#O Jardim Secreto @Frances Hodgson Burnett
+#O Pequeno Príncipe @Antoine de Saint-Exupéry
+#O Mundo de Sofia @Jostein Gaarder
+#O Caçador de Pipas @Khaled Hosseini
+#A Cabana @William P. Young
+#O Silmarillion @J.R.R. Tolkien
+#O Senhor dos Anéis: A Sociedade do Anel @J.R.R. Tolkien
+#O Senhor dos Anéis: As Duas Torres @J.R.R. Tolkien
