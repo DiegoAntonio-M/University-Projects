@@ -1,0 +1,323 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+body {
+    background: linear-gradient(hsl(213, 79%, 36%) 0%, hsl(214, 85%, 11%) 33.33%, hsl(214, 85%, 11%) 66.67%, hsl(208, 87%, 3%) 100%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    background-image: url("img/code.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    opacity: 0.4;
+}
+
+.gradient-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Coloca os gradientes atrás do conteúdo */
+}
+
+.gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s ease;
+}
+
+#gradient1 {
+    background: linear-gradient(hsl(213, 79%, 36%), hsl(214, 85%, 11%), hsl(214, 85%, 11%), hsl(208, 87%, 3%));
+}
+
+#gradient2 {
+    background: linear-gradient(hsl(240, 79%, 36%), hsl(241, 85%, 11%), hsl(241, 85%, 11%), hsl(235, 87%, 3%));
+    opacity: 0;
+}
+
+#gradient3 {
+    background: linear-gradient(hsl(240, 79%, 36%), hsl(241, 85%, 11%), hsl(241, 85%, 11%), hsl(235, 87%, 3%));
+    opacity: 0;
+}
+
+.container {
+    width: 80vw; /* 80% da largura da janela */
+    height: auto; /* 40% da altura da janela */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza horizontalmente o conteúdo */
+    border-radius: 24px;
+    border: 1px solid hsl(213, 82%, 50%);
+    box-shadow: 4px 4px 20px 0px hsla(88, 87%, 3%, 0.15);
+    background-image: url("img/Ruido.png");
+    background-size: 100% 100%;
+    position: relative;
+    transition: 2s cubic-bezier(0.74, 0.38, 0.21, 0.89);
+    max-width: 1680px; /* Limite máximo de largura */
+    min-width: 700px;
+    max-height: 80%; /* Limite máximo de altura */
+    min-height: 200px;
+}
+
+.container__conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 700px;
+    width: 100%;
+    height: 100%;
+}
+
+.container__informacoes {
+    flex: 1;
+    min-width: 120px;
+    padding: 3rem;
+}
+
+.container__botao {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 16px;
+    background: #1875E8;
+    padding: 16px 24px;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 700;
+    border: none;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+button:disabled {
+    background-color: gray;
+}
+
+.container__texto {
+    margin: 16px 0 16px 0;
+}
+
+.container__texto-azul {
+    color: #1875E8;
+}
+
+.container__input {
+    width: 100%;
+    height: 72px;
+    border-radius: 16px;
+    background-color: #FFF;
+    border: none;
+    color: #1875E8;
+    padding: 2rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+}
+
+.container__input::placeholder {
+    color: #16458342; /* Cor do texto do placeholder */
+    font-style: italic; /* Estilo da fonte do placeholder */
+}
+
+.container__botoes {
+    display: flex;
+    gap: 2em;
+}
+
+.container__botao {
+    border-radius: 16px;
+    background: #1875E8;
+    padding: 16px 24px;
+    font-size: 1.5rem; /* Usando rem para tamanho relativo */
+    font-weight: 700;
+    border: none;
+    margin-top: 2rem;
+}
+
+button:disabled {
+    background-color: gray;
+}
+
+.container__dado {
+    max-width: 50%;
+    height: auto;
+    object-fit: contain; /* Garante que a imagem se ajuste dentro do contêiner */
+    margin-bottom: 1rem; /* Adiciona margem inferior para evitar ultrapassar a borda */
+    align-self: flex-end; /* Alinha a imagem ao final do contêiner */
+    margin-top: -8rem;
+}
+
+h1 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 4rem; /* Usando rem para tamanho relativo */
+    padding-bottom: 3rem;
+    margin-right: -2rem;
+}
+
+p,
+button {
+    font-family: 'Inter', sans-serif;
+}
+
+.texto__paragrafo {
+    font-size: 2rem; /* Usando rem para tamanho relativo */
+    font-weight: 400;
+}
+
+/* Media query para telas pequenas */
+@media (max-width: 1200px) {
+
+    body {
+        background: linear-gradient(hsl(213, 79%, 36%) 0%, hsl(214, 85%, 11%) 33.33%, hsl(214, 85%, 11%) 66.67%, hsl(208, 87%, 3%) 100%);
+        height: 90vh;
+        width: 100vw;
+        max-width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        display: flex;
+        width: 100vw; /* 100% da largura da janela */
+        height: auto; /* Altura automática */
+        min-width: 100%; /* Largura mínima de 100% */
+        min-height: 600px; /* Altura mínima automática */
+        padding: 1.5rem; /* Adiciona preenchimento */
+        margin: 2em;
+        max-width: 80%; /* Limite máximo de largura */
+        min-width: 400px;
+        max-height: 90%; /* Limite máximo de altura */
+        min-height: 600px;
+        overflow: visible; /* Esconde a barra de rolagem dentro do contêiner */
+    }
+
+    .container__conteudo {
+        flex-direction: column; /* Alinha o conteúdo em coluna */
+        align-items: center; /* Centraliza os itens */
+        max-height: 90%; /* Limite máximo de altura */
+        max-width: 85%;
+        display: flex;
+        flex-direction: column-reverse;
+        min-width: 300px;
+        justify-content: center;
+    }
+
+    .container__informacoes {
+        padding: 1rem; /* Reduz o preenchimento */
+        max-height: 90%; /* Limite máximo de altura */
+        max-width: 100%;
+        min-width: 120px;
+    }
+
+    .container__input {
+        font-size: 1.2rem; /* Reduz o tamanho da fonte */
+        padding: 1rem; /* Reduz o preenchimento */
+    }
+
+    .container__botao {
+        font-size: 1.3rem; /* Reduz o tamanho da fonte */
+        padding: 1rem; /* Reduz o preenchimento */
+    }
+
+    .container__botoes {
+        margin-bottom: 4em;
+    }
+
+    h1 {
+        font-size: 3.5rem; /* Reduz o tamanho da fonte */
+        margin-right: auto;
+        text-align: center; /* Centraliza o texto dentro do h1 */
+    }
+
+    .texto__paragrafo {
+        font-size: 1.5rem; /* Reduz o tamanho da fonte para telas pequenas */
+    }
+
+    .container__dado {
+        max-width: 40%; /* Aumenta a largura da imagem para telas pequenas */
+        height: auto;
+        position: relative;
+        align-content: first baseline;
+        align-self: auto;
+        margin-bottom: -4rem;
+        margin-top: -10rem;
+    }
+
+    .gradient-container {
+        width: 100%;
+    }
+}
+
+/* Media query para telas muito pequenas (celulares em modo retrato) */
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem; /* Menos preenchimento nas telas muito pequenas */
+        width: 90%; /* Ajusta o mínimo da largura do container */
+        max-height: 85%; /* Limite de altura para telas menores */
+        min-width: 320px;
+        min-height: fit-content;
+    }
+
+    .container__conteudo {
+        flex-direction: column-reverse; /* Força o conteúdo a se alinhar verticalmente */
+        align-items: center;
+        width: 100%;
+        height: 450px;
+        justify-content: space-around;
+    }
+
+    .container__informacoes {
+        padding: 1rem;
+        margin-bottom: 2em;
+    }
+
+    .container__input {
+        font-size: 100%; /* Diminui o tamanho da fonte */
+    }
+
+    .container__botao {
+        font-size: 1rem; /* Tamanho reduzido do botão */
+        margin-top: 1em;
+    }
+
+    h1 {
+        font-size: 2rem; /* Tamanho reduzido do título */
+    }
+
+    .texto__paragrafo {
+        font-size: 1.3rem; /* Ajuste no tamanho do parágrafo */
+    }
+
+    .container__dado {
+        max-width: 30%; /* A imagem ocupa 100% da largura disponível */
+        margin-top: 0;
+        margin-bottom: -2em;
+    }
+
+    .container__botoes {
+        display: flex;
+        gap: 1em;
+        margin-top: 2em;
+    }
+}
