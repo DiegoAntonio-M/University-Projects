@@ -9,14 +9,12 @@ typedef struct arrayModulavel {
     int endPoint;
 } arrayModulavel;
 
-
 void removerQuerbraLinha(char *frase) {
-
     int tamanho = strlen(frase);
-    if (tamanho > 0 && *(frase+tamanho - 1) == '\n') {
+    if (tamanho > 0 && *(frase + tamanho - 1) == '\n') {
         frase[tamanho - 1] = '\0';
     }
-    if (tamanho > 0 && *(frase+tamanho - 1) == ' ') {
+    if (tamanho > 0 && *(frase + tamanho - 1) == ' ') {
         frase[tamanho - 1] = '\0';
     }
 }
@@ -39,7 +37,7 @@ int alocarArray(arrayModulavel *array, int adicao, int limite) {
     return 0;
 }
 
-int completarCriacaoArray (arrayModulavel *array1, int tamanhoInicial) {
+int completarCriacaoArray(arrayModulavel *array1, int tamanhoInicial) {
     (tamanhoInicial < 1) ? tamanhoInicial = 1 : tamanhoInicial;
     array1->tamanhoArray = tamanhoInicial;
     array1->array = calloc(array1->tamanhoArray, sizeof(char));
@@ -47,16 +45,12 @@ int completarCriacaoArray (arrayModulavel *array1, int tamanhoInicial) {
         printf("Falha ao alocar memória.\n");
         return 1;
     } else {
-        int arrayNULL[array1->tamanhoArray] = {};
-        for (int j = 0; j < array1->tamanhoArray; j++) {
-            array1->array[j] = arrayNULL[j];
-        }        
         array1->endPoint = 0;
     }
+    return 0;
 }
 
-int preencherArray (arrayModulavel *array1, FILE *arquivo) {
-    
+int preencherArray(arrayModulavel *array1, FILE *arquivo) {
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo.\n");
         exit(1);
@@ -66,39 +60,42 @@ int preencherArray (arrayModulavel *array1, FILE *arquivo) {
     int i = 0;
     char t = 0;
 
-        while (((t = fgetc(arquivo)) != '\n') && t != EOF) {
-            alocarArray(&textTemp, 1, 2);
-            textTemp.array[textTemp.endPoint++] = t;
-            i++;
-        } 
+    while (((t = fgetc(arquivo)) != '\n') && t != EOF) {
+        alocarArray(&textTemp, 1, 2);
+        textTemp.array[textTemp.endPoint++] = t;
+        i++;
+    }
 
     removerQuerbraLinha(textTemp.array);
     alocarArray(array1, 1, i);
     strcpy(array1->array, textTemp.array);
-    array1->endPoint = (textTemp.endPoint - 1);
+    array1->endPoint = textTemp.endPoint;
+
+    free(textTemp.array); // Libera a memória alocada para textTemp
 
     if (t == EOF) return EOF;
     return 0;
 }
 
-int mesclarTextos (char *array1, char *array2, FILE *arquivoResultado) {
-
+int mesclarTextos(char *array1, char *array2, FILE *arquivoResultado) {
     if (arquivoResultado == NULL) {
         printf("Erro ao abrir o arquivo.\n");
         exit(1);
     }
     fprintf(arquivoResultado, "%s\n", array1);
     fprintf(arquivoResultado, "%s\n", array2);
+    return 0;
 }
 
-
 int main() {
-
     FILE *arquivo1 = fopen("Modulo_3\\Lista3Parte1\\Atividade_25\\arquivo1.txt", "r");
-
     FILE *arquivo2 = fopen("Modulo_3\\Lista3Parte1\\Atividade_25\\arquivo2.txt", "r");
-
     FILE *arquivoMesclado = fopen("Modulo_3\\Lista3Parte1\\Atividade_25\\arquivoMesclado.txt", "w");
+
+    if (arquivo1 == NULL || arquivo2 == NULL || arquivoMesclado == NULL) {
+        printf("Erro ao abrir um dos arquivos.\n");
+        return 1;
+    }
 
     arrayModulavel arrayA = {};
     arrayModulavel arrayB = {};
@@ -110,13 +107,16 @@ int main() {
         int c1 = preencherArray(&arrayA, arquivo1);
         int c2 = preencherArray(&arrayB, arquivo2);
 
-        if ( c1 == EOF || c2 == EOF) {
+        if (c1 == EOF || c2 == EOF) {
             mesclarTextos(arrayA.array, arrayB.array, arquivoMesclado);
             fputs("\n## A Mesclagem Terminou ##\n", stdout);
             break;
         } else {
             mesclarTextos(arrayA.array, arrayB.array, arquivoMesclado);
         }
+
+        // free(arrayA.array); // Libera a memória alocada para arrayA
+        // free(arrayB.array); // Libera a memória alocada para arrayB
 
     } while (1);
 
