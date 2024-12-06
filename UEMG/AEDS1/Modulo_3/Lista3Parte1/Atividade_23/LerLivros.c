@@ -30,6 +30,7 @@ int completarCriacao (Estante *livros, int tamanhoInicial) {
             livros->livros[j] = arrayNULL[j];
         }
     }
+    return 0;
 }
 
 int alocarLivros (Estante *livros, int adicao, int limite) {
@@ -41,7 +42,6 @@ int alocarLivros (Estante *livros, int adicao, int limite) {
         livros->livros = realloc(livros->livros, livros->quantLivros * sizeof(TLivros));
         if (livros->livros == NULL) {
             printf("Falha ao alocar memória.\n");
-            return -1;
             exit(-1);
         }
         TLivros arrayNULL[livros->quantLivros] = {};
