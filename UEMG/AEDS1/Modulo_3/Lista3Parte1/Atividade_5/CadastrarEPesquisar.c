@@ -4,6 +4,7 @@
 # include <string.h>
 
 #define QUANTCARACTER 40
+#define QUANTPESSOAS 5
 
 typedef struct cadastroPessoa {
     char name[QUANTCARACTER+1];
@@ -32,9 +33,8 @@ void inserirTexto (char *gardarEm) {
 }
 
 int main() {
-
-    int quantidadeDePessoas = 5;
-    cadastroPessoa listaDeCadastro[quantidadeDePessoas] = {};
+    int quantidadeDePessoas = QUANTPESSOAS;
+    cadastroPessoa listaDeCadastro[QUANTPESSOAS] = {};
     char procAluno[QUANTCARACTER + 2] = {};
 
     for (int i = 0; i < quantidadeDePessoas; i++) {
@@ -97,13 +97,11 @@ int main() {
                 } else {
                     fputs("## Salário mantido ##\n\n", stdout);
                 }
-                
             }
             foiEncontrado =+ validarNome;
-
         }
         
-        (foiEncontrado == 0) ? fputs("!#!#! Não encontrado !#!#!\n", stdout) : fputs("", stdout) ;
+        (foiEncontrado == 0) ? fputs("!#!#! Não encontrado !#!#!\n", stdout) : fputs("", stdout);
 
         fputs(">> Você deseja pesquisar novamente ? [Sim = 1 | Não = 0]: ", stdout);
         scanf("%d", &pesquisarDenovo);
@@ -116,7 +114,6 @@ int main() {
         printf("Nome: %s\n", listaDeCadastro[i].name);
         printf("Idade: %d\n", listaDeCadastro[i].idade);
         printf("Salário: %.2lf\n", listaDeCadastro[i].salario);
-
     }
 
     return 0;
