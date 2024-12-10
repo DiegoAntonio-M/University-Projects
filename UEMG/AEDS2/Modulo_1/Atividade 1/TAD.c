@@ -56,8 +56,8 @@ void desfragmentar(planoCartesiano *plano) {
         if (plano->pontos[writing].ID[0] == 0 && plano->pontos[writing].ID[1] == 0) {
             printf("W(%d): [%s]\n", writing, plano->pontos[writing].ID); //Debug
             printf("R(%d): [%s]\n", reading, plano->pontos[reading].ID); //Debug
-            if (plano->pontos[reading].ID[0] != 0 && plano->pontos[reading].ID[1] != 0) {
-                printf("R(%d): [%s]\n", reading, plano->pontos[reading].ID); //Debug
+            if (plano->pontos[reading].ID[0] != 0 || plano->pontos[reading].ID[1] != 0) {
+                printf("R(%d): [%s]*\n", reading, plano->pontos[reading].ID); //Debug
                 printf("W(%d) <- R(%d): [%s] <- [%s]\n",writing, reading, plano->pontos[writing], plano->pontos[reading].ID); //Debug
                 plano->pontos[writing] = plano->pontos[reading];
                 printf("W(%d) <- R(%d): [%s] <- [%s]\n",writing, reading, plano->pontos[writing], plano->pontos[reading].ID); //Debug
