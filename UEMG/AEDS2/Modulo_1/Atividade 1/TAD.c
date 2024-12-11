@@ -51,10 +51,14 @@ int aclocarPonto(planoCartesiano *plano, int quantAdd) {
 void desfragmentar(planoCartesiano *plano) {
     int writing = 0;
 
+    for (int i = 0; i < plano->quantDePontos; i++) {
+        printf("[%s] ", (plano->pontos + i)->ID);
+    }
+
     for (int reading  = 1; reading < plano->quantDePontos; reading++) {
         printf("W(%d): [%s]\n", writing, plano->pontos[writing].ID);  //Debug
         if (plano->pontos[writing].ID[0] == 0 && plano->pontos[writing].ID[1] == 0) {
-            printf("W(%d): [%s]\n", writing, plano->pontos[writing].ID); //Debug
+            printf("W(%d): [%s]*\n", writing, plano->pontos[writing].ID); //Debug
             printf("R(%d): [%s]\n", reading, plano->pontos[reading].ID); //Debug
             if (plano->pontos[reading].ID[0] != 0 || plano->pontos[reading].ID[1] != 0) {
                 printf("R(%d): [%s]*\n", reading, plano->pontos[reading].ID); //Debug
@@ -62,11 +66,17 @@ void desfragmentar(planoCartesiano *plano) {
                 plano->pontos[writing] = plano->pontos[reading];
                 printf("W(%d) <- R(%d): [%s] <- [%s]\n",writing, reading, plano->pontos[writing], plano->pontos[reading].ID); //Debug
                 writing++;
-
+                for (int i = 0; i < plano->quantDePontos; i++) {
+                    printf("[%s] ", (plano->pontos + i)->ID);
+                }
+                printf("\n");
                 plano->pontos[reading].ID[0] = 0;
                 plano->pontos[reading].ID[1] = 0;
                 plano->pontos[reading].x = 0;
                 plano->pontos[reading].y = 0;
+                for (int i = 0; i < plano->quantDePontos; i++) {
+                    printf("[%s] ", (plano->pontos + i)->ID);
+                }
             }
         } else {
             writing++;
@@ -303,6 +313,12 @@ int main() {
         fputs("\n\nA entropia eh: ", stdout);
         for (int i = 0; i < 3; i++){
             printf("[%d] ",*(planoA.entropyLevel + i));
+        }
+        for (int i = 0; i < planoA.quantDePontos; i++) {
+            if ((planoA.pontos + i)->ID[0] != 0 || (planoA.pontos + i)->ID[1] != 0)
+            {
+                printf("[%s] ", (planoA.pontos + i)->ID);
+            }
         }
             break;
         case 3:
