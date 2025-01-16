@@ -177,13 +177,16 @@ void clearBuffer() {
 }
 
 void fgetsCleanedByStdin(char *out, int save, bool isTrim) {
-    char c;
+    char c = 0;
+    int i;
     if (isTrim == true) save--;
-    for (int i = 0; ((c = fgetchar()) != '\n') && (c != EOF || c != '\000'); i++) {
+    novaTentativa:
+    for (i = 0; ((c = fgetchar()) != '\n') && !(c == EOF || c == '\000'); i++) {
         if (i < save) {
             out[i] = c;
         }
     }
+    if (i == 0 && c == '\n') goto novaTentativa;
     if (isTrim == true) out[save] = 0;
 }
 
@@ -321,9 +324,36 @@ int main() {
             }
         }
             break;
-        case 3:
-            /* code */
+        case 3: {
+            char idName1[3] = {};
+            char idName2[3] = {};
+            int positionSearch1 = -1;
+            int positionSearch2 = -1;
+            double distance = 0;
+            
+            do {
+                fputs("Selecione o Ponto 1 [Escreva o Nome]: ", stdout);
+                fgetsCleanedByStdin(idName1, sizeof(idName1), true);
+                positionSearch1 = resultPositionSearch(&planoA, idName1);
+                if (positionSearch1 == -1) {
+                    fputs("### Não foi possível encontrar correspondencia para esse ponto ###\n\n", stdout);
+                }
+            } while (positionSearch1 == -1);
+
+            do {
+                fputs("Selecione o Ponto 2 [Escreva o Nome]: ", stdout);
+                fgetsCleanedByStdin(idName2, sizeof(idName2), true);
+                positionSearch2 = resultPositionSearch(&planoA, idName2);
+                if (positionSearch2 == -1) {
+                    fputs("### Não foi possível encontrar correspondencia para esse ponto ###\n\n", stdout);
+                }
+            } while (positionSearch2 == -1);
+
+            distance = sqrt(pow((planoA.pontos[positionSearch1].x - planoA.pontos[positionSearch2].x), 2) + pow((planoA.pontos[positionSearch1].y - planoA.pontos[positionSearch2].y), 2));
+            printf("\nA distancia entre os pontos %s e %s eh: %.2lf\n\n", idName1, idName2, distance);
+
             break;
+        }
         case -1:
             sair = 1;
             break;
@@ -332,8 +362,6 @@ int main() {
         }
         fputs("\n\n",stdout);
     } while (sair == 0);
-    
-
 
     return 0;
 }
