@@ -21,7 +21,7 @@ typedef struct aluno {
 
 typedef struct pilha {
     int quantElementos; // Quantidade de elementos alocados no vetor
-    aluno alunos[MAX];   // Ponteiro para os elementos do vetor
+    aluno alunos[MAX];  // Ponteiro para os elementos do vetor
     int pointWR;        // Índice para a próxima posição de escrita
 } pilha;
 

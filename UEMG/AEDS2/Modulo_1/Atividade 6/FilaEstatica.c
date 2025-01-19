@@ -33,7 +33,7 @@ typedef struct resultado {
 } resultado;
 
 // Função para exibir e processar o menu de opções
-int menu(char *options[], int quantOptions, bool isMain) {
+int menu(char* options[], int quantOptions, bool isMain) {
     int option = 0;
     do {
         setbuf(stdin, NULL);
@@ -57,11 +57,11 @@ int menu(char *options[], int quantOptions, bool isMain) {
     return option;
 }
 
-double imprimirNotaFinal(aluno *aluno) {
+double imprimirNotaFinal(aluno* aluno) {
     return aluno->nota1 + aluno->nota2 + aluno->nota3;
 }
 
-void fgetsCleanedByStdin(char *out, int save, bool isTrim) {
+void fgetsCleanedByStdin(char* out, int save, bool isTrim) {
     char c;
     if (isTrim == true) save--;
     for (int i = 0; ((c = fgetchar()) != '\n') && (c != EOF || c != '\000'); i++) {
@@ -73,7 +73,7 @@ void fgetsCleanedByStdin(char *out, int save, bool isTrim) {
 }
 
 // Função de Impressão
-void imprimirAluno(aluno *aluno) {
+void imprimirAluno(aluno* aluno) {
     printf("Nome: %s\n", aluno->nome);
     printf("Matricula: %d\n", aluno->matricula);
     printf("Nota 1: %.2lf\n", aluno->nota1);
@@ -83,7 +83,7 @@ void imprimirAluno(aluno *aluno) {
 }
 
 // Função de Impressão Final
-void imprimirAlunoNotaFinal(aluno *aluno) {
+void imprimirAlunoNotaFinal(aluno* aluno) {
     printf("Nome: %s\n", aluno->nome);
     printf("Matricula: %d\n", aluno->matricula);
     printf("Nota 1: %.2lf\n", aluno->nota1);
@@ -93,7 +93,7 @@ void imprimirAlunoNotaFinal(aluno *aluno) {
     double notaFinal = imprimirNotaFinal(aluno);
     printf("Nota Final: %.2lf\n\n", notaFinal);
     printf("Situação: ");
-    if(notaFinal <= 40) {
+    if (notaFinal <= 40) {
         printf("Reprovado!!!\n\n");
     }
     if ((40 < notaFinal) && (notaFinal < 60)) {
@@ -106,7 +106,7 @@ void imprimirAlunoNotaFinal(aluno *aluno) {
 }
 
 // Compara a string em ordem alfabética (Tipo "strcmp")
-int compararOrdemAlfabetica(const char *str1, const char *str2) {
+int compararOrdemAlfabetica(const char* str1, const char* str2) {
     for (int i = 0; str1[i] != '\0' && str2[i] != '\0'; i++) {
         if (str1[i] != str2[i]) {
             return str1[i] - str2[i];
@@ -116,7 +116,7 @@ int compararOrdemAlfabetica(const char *str1, const char *str2) {
 }
 
 // Faz a busca sequencial de alunos pela matrícula
-resultado buscaSequencialAluno(fila *CadAlunos, int valor) {
+resultado buscaSequencialAluno(fila* CadAlunos, int valor) {
     resultado resultadoSeg = {};
     for (int i = CadAlunos->front; i < CadAlunos->rear; i++) {
         if (CadAlunos->alunos[i].matricula == valor) {
@@ -129,7 +129,7 @@ resultado buscaSequencialAluno(fila *CadAlunos, int valor) {
 }
 
 // Faz a busca sequencial de alunos pelo nome
-resultado buscaSequencialAlunoNome(fila *CadAlunos, char *nome) {
+resultado buscaSequencialAlunoNome(fila* CadAlunos, char* nome) {
     resultado resultadoSeg = {};
     for (int i = CadAlunos->front; i < CadAlunos->rear; i++) {
         if (compararOrdemAlfabetica(CadAlunos->alunos[i].nome, nome) == 0) {
@@ -142,7 +142,7 @@ resultado buscaSequencialAlunoNome(fila *CadAlunos, char *nome) {
 }
 
 // Ordena o cadastro de alunos por matrícula usando bubble sort (Por Matrícula)
-void ordenarAlunoByMatricula(fila *CadAlunos) {
+void ordenarAlunoByMatricula(fila* CadAlunos) {
     for (int i = CadAlunos->front; i < CadAlunos->rear - 1; i++) {
         for (int j = CadAlunos->front; j < CadAlunos->rear - i - 1; j++) {
             if (CadAlunos->alunos[j].matricula > CadAlunos->alunos[j + 1].matricula) {
@@ -155,7 +155,7 @@ void ordenarAlunoByMatricula(fila *CadAlunos) {
 }
 
 // Ordena o cadastro de alunos por matrícula usando bubble sort (Por Nome)
-void ordenarAlunoByName(fila *CadAlunos) {
+void ordenarAlunoByName(fila* CadAlunos) {
     for (int i = CadAlunos->front; i < CadAlunos->rear - 1; i++) {
         for (int j = CadAlunos->front; j < CadAlunos->rear - i - 1; j++) {
             if (compararOrdemAlfabetica(CadAlunos->alunos[j].nome, CadAlunos->alunos[j + 1].nome) > 0) {
@@ -168,7 +168,7 @@ void ordenarAlunoByName(fila *CadAlunos) {
 }
 
 // Faz a busca Binária pelo valor da Matrícula
-resultado buscaBinariaAluno(fila *CadAlunos, int valor) {
+resultado buscaBinariaAluno(fila* CadAlunos, int valor) {
     resultado resultadoBin = {};
     int left = CadAlunos->front;
     int right = CadAlunos->rear - 1;
@@ -190,7 +190,7 @@ resultado buscaBinariaAluno(fila *CadAlunos, int valor) {
 }
 
 // Faz a busca Binária pelo nome do aluno
-resultado buscaBinariaAlunoNome(fila *CadAlunos, char *nome) {
+resultado buscaBinariaAlunoNome(fila* CadAlunos, char* nome) {
     resultado resultadoBin = {};
     int left = CadAlunos->front;
     int right = CadAlunos->rear - 1;
@@ -212,7 +212,7 @@ resultado buscaBinariaAlunoNome(fila *CadAlunos, char *nome) {
 }
 
 // Cadatra uma unidade de aluno
-void addAluno(fila *CadAlunos) {
+void addAluno(fila* CadAlunos) {
     printf("Aluno %d:\n", CadAlunos->quantElementos + 1);
     printf("Nome: ");
     fgetsCleanedByStdin(CadAlunos->alunos[CadAlunos->rear].nome, sizeof(CadAlunos->alunos[CadAlunos->rear].nome), true);
@@ -228,15 +228,15 @@ void addAluno(fila *CadAlunos) {
     printf("Média: %.2lf\n\n", CadAlunos->alunos[CadAlunos->rear].media);
 }
 
-int isCheio(fila *f) {
+int isCheio(fila* f) {
     return f->rear == MAX;
 }
 
-int isVazio(fila *f) {
+int isVazio(fila* f) {
     return f->front == f->rear;
 }
 
-void enfileirar(fila *f) {
+void enfileirar(fila* f) {
     if (!isCheio(f)) {
         addAluno(f);
         f->rear++;
@@ -246,7 +246,7 @@ void enfileirar(fila *f) {
     }
 }
 
-void desenfileirar(fila *f) {
+void desenfileirar(fila* f) {
     if (!isVazio(f)) {
         for (int i = f->front; i < f->rear - 1; i++) {
             f->alunos[i] = f->alunos[i + 1];
@@ -272,7 +272,7 @@ int main() {
         fputs("\n================================================================", stdout);
         printf("[%d]\n", indiceMenu);
         printf("[%d] Total de Elementos\n[%d] Elementos preenchidos\n", MAX, CadAlunos.quantElementos);
-        char *optionsC1[] = {
+        char* optionsC1[] = {
             "Adicionar Alunos", // (1)
             "Excluir Primeiro Aluno", // (2)
             "Ordenar", // (3)
@@ -287,202 +287,202 @@ int main() {
         int menuC1 = sizeof(optionsC1) / sizeof(optionsC1[0]);
 
         switch (menu(optionsC1, menuC1, true)) {
-            case 1: {  // Adiciona novos alunos na pilha.
-                enfileirar(&CadAlunos);
-                break;
-            }
-            case 2: { // Adiciona novos alunos.
-                desenfileirar(&CadAlunos);
-                break;
-            }
-            case 3: { // Ordena os alunos
-                int continuarC3 = 1;
-                do {
-                    indiceMenu++;
-                    fputs("\n================================================================", stdout);
-                    printf("[%d]\n", indiceMenu);
-                    printf("[%d] Total de Elementos\n[%d] Elementos preenchidos\n", MAX, CadAlunos.quantElementos);
-                    char *optionsC2[] = {
-                        "Ordenar Por Matrícula",
-                        "Ordenar Por Nome"
-                    };
-                    int menuC2 = sizeof(optionsC2) / sizeof(optionsC2[0]);
+        case 1: {  // Adiciona novos alunos na pilha.
+            enfileirar(&CadAlunos);
+            break;
+        }
+        case 2: { // Adiciona novos alunos.
+            desenfileirar(&CadAlunos);
+            break;
+        }
+        case 3: { // Ordena os alunos
+            int continuarC3 = 1;
+            do {
+                indiceMenu++;
+                fputs("\n================================================================", stdout);
+                printf("[%d]\n", indiceMenu);
+                printf("[%d] Total de Elementos\n[%d] Elementos preenchidos\n", MAX, CadAlunos.quantElementos);
+                char* optionsC2[] = {
+                    "Ordenar Por Matrícula",
+                    "Ordenar Por Nome"
+                };
+                int menuC2 = sizeof(optionsC2) / sizeof(optionsC2[0]);
 
-                    switch (menu(optionsC2, menuC2, false)) {
-                        case 1: { // Ordena por matrícula.
-                            printf("Antes da ordenação por matrícula:\n==============================\n");
-                            for (int i = CadAlunos.front; i < CadAlunos.rear; i++) {
-                                printf("Aluno %d:\nMatrícula: %d\nNome: %s\n==============================\n", i + 1, CadAlunos.alunos[i].matricula, CadAlunos.alunos[i].nome);
-                            }
-                            ordenarAlunoByMatricula(&CadAlunos);
-                            printf("Depois da ordenação por matrícula:\n==============================\n");
-                            for (int i = CadAlunos.front; i < CadAlunos.rear; i++) {
-                                printf("Aluno %d:\nMatrícula: %d\nNome: %s\n==============================\n", i + 1, CadAlunos.alunos[i].matricula, CadAlunos.alunos[i].nome);
-                            }
-                            break;
-                        }
-                        case 2: { // Ordena por nome.
-                            printf("Antes da ordenação por nome:\n==============================\n");
-                            for (int i = CadAlunos.front; i < CadAlunos.rear; i++) {
-                                printf("Aluno %d:\nMatrícula: %d\nNome: %s\n==============================\n", i + 1, CadAlunos.alunos[i].matricula, CadAlunos.alunos[i].nome);
-                            }
-                            ordenarAlunoByName(&CadAlunos);
-                            printf("Depois da ordenação por nome:\n==============================\n");
-                            printf("=>=>=>=>=>=>=>=>=>=>\n");
-                            for (int i = CadAlunos.front; i < CadAlunos.rear; i++) {
-                                printf("Aluno %d:\nMatrícula: %d\nNome: %s\n==============================\n", i + 1, CadAlunos.alunos[i].matricula, CadAlunos.alunos[i].nome);
-                            }
-                            break;
-                        }
-                        case -1:
-                            continuarC3 = 0;
-                            break;
-                        default:
-                            break;
+                switch (menu(optionsC2, menuC2, false)) {
+                case 1: { // Ordena por matrícula.
+                    printf("Antes da ordenação por matrícula:\n==============================\n");
+                    for (int i = CadAlunos.front; i < CadAlunos.rear; i++) {
+                        printf("Aluno %d:\nMatrícula: %d\nNome: %s\n==============================\n", i + 1, CadAlunos.alunos[i].matricula, CadAlunos.alunos[i].nome);
                     }
-                    indiceMenu--;
-                } while (continuarC3 == 1);
-                break;
-            }
-
-            case 4: { // Realiza busca sequencial no cadastro de alunos.
-                int continuarC4 = 1;
-                do {
-                    indiceMenu++;
-                    fputs("\n================================================================", stdout);
-                    printf("[%d]\n", indiceMenu);
-                    printf("[%d] Total de Elementos\n[%d] Elementos preenchidos\n", MAX, CadAlunos.quantElementos);
-                    char *optionsBusca[] = {
-                        "Por Matrícula",
-                        "Por Nome"
-                    };
-                    int menuBusca = sizeof(optionsBusca) / sizeof(optionsBusca[0]);
-
-                    switch (menu(optionsBusca, menuBusca, false)) {
-                        case 1: { // Busca por matrícula.
-                            int valor = 0;
-                            printf("Digite a matrícula para buscar [Primeira Correspondencia] >>> ");
-                            scanf("%d", &valor);
-                            resultado resultadoSeg = buscaSequencialAluno(&CadAlunos, valor);
-                            if (resultadoSeg.encontrado) {
-                                printf("\nMatrícula %d encontrada na posição %d.\n\n", valor, resultadoSeg.position + 1);
-                            } else {
-                                printf("\n<#### Matrícula %d não encontrada ####>\n\n", valor);
-                            }
-                            break;
-                        }
-                        case 2: { // Busca por nome.
-                            char nome[50];
-                            printf("Digite o nome para buscar >>> ");
-                            scanf("%s", nome);
-                            resultado resultadoSeg = buscaSequencialAlunoNome(&CadAlunos, nome);
-                            if (resultadoSeg.encontrado) {
-                                printf("\nNome %s encontrado na posição %d.\n\n", nome, resultadoSeg.position + 1);
-                            } else {
-                                printf("\n<#### Nome %s não encontrado ####>\n\n", nome);
-                            }
-                            break;
-                        }
-                        case -1:
-                            continuarC4 = 0;
-                            break;
+                    ordenarAlunoByMatricula(&CadAlunos);
+                    printf("Depois da ordenação por matrícula:\n==============================\n");
+                    for (int i = CadAlunos.front; i < CadAlunos.rear; i++) {
+                        printf("Aluno %d:\nMatrícula: %d\nNome: %s\n==============================\n", i + 1, CadAlunos.alunos[i].matricula, CadAlunos.alunos[i].nome);
                     }
-                    indiceMenu--;
-                } while (continuarC4 == 1);
-                break;
-            }
-            case 5: { // Realiza busca binária no cadastro de alunos.
-                int continuarC4 = 1;
-                do {
-                    indiceMenu++;
-                    fputs("\n================================================================", stdout);
-                    printf("[%d]\n", indiceMenu);
-                    printf("[%d] Total de Elementos\n[%d] Elementos preenchidos\n", MAX, CadAlunos.quantElementos);
-                    char *optionsBusca[] = {
-                        "Por Matrícula",
-                        "Por Nome"
-                    };
-                    int menuBusca = sizeof(optionsBusca) / sizeof(optionsBusca[0]);
-
-                    switch (menu(optionsBusca, menuBusca, false)) {
-                        case 1: { // Busca por matrícula.
-                            int valor = 0;
-                            printf("Digite a matrícula para buscar [Ordenação automática][Primeira Correspondencia] >>> ");
-                            scanf("%d", &valor);
-                            ordenarAlunoByMatricula(&CadAlunos);
-                            resultado resultadoBin = buscaBinariaAluno(&CadAlunos, valor);
-                            if (resultadoBin.encontrado) {
-                                printf("\nMatrícula %d encontrada na posição %d.\n\n", valor, resultadoBin.position + 1);
-                            } else {
-                                printf("\n<#### Matrícula %d não encontrada ####>\n\n", valor);
-                            }
-                            break;
-                        }
-                        case 2: { // Busca por nome.
-                            char nome[50];
-                            printf("Digite o nome para buscar [Ordenação automática] >>> ");
-                            scanf("%s", nome);
-                            ordenarAlunoByName(&CadAlunos);
-                            resultado resultadoBin = buscaBinariaAlunoNome(&CadAlunos, nome);
-                            if (resultadoBin.encontrado) {
-                                printf("\nNome %s encontrado na posição %d.\n\n", nome, resultadoBin.position + 1);
-                            } else {
-                                printf("\n<#### Nome %s não encontrado ####>\n\n", nome);
-                            }
-                            break;
-                        }
-                        case -1:
-                            continuarC4 = 0;
-                            break;
-                    }
-                    indiceMenu--;
-                } while (continuarC4 == 1);
-                break;
-            }
-            case 6: { // Imprime informações dos alunos cadastrados.
-                for (int i = CadAlunos.front; i < CadAlunos.rear; i++) {
-                    printf("----------------------------\n");
-                    imprimirAluno(&CadAlunos.alunos[i]);
+                    break;
                 }
+                case 2: { // Ordena por nome.
+                    printf("Antes da ordenação por nome:\n==============================\n");
+                    for (int i = CadAlunos.front; i < CadAlunos.rear; i++) {
+                        printf("Aluno %d:\nMatrícula: %d\nNome: %s\n==============================\n", i + 1, CadAlunos.alunos[i].matricula, CadAlunos.alunos[i].nome);
+                    }
+                    ordenarAlunoByName(&CadAlunos);
+                    printf("Depois da ordenação por nome:\n==============================\n");
+                    printf("=>=>=>=>=>=>=>=>=>=>\n");
+                    for (int i = CadAlunos.front; i < CadAlunos.rear; i++) {
+                        printf("Aluno %d:\nMatrícula: %d\nNome: %s\n==============================\n", i + 1, CadAlunos.alunos[i].matricula, CadAlunos.alunos[i].nome);
+                    }
+                    break;
+                }
+                case -1:
+                    continuarC3 = 0;
+                    break;
+                default:
+                    break;
+                }
+                indiceMenu--;
+            } while (continuarC3 == 1);
+            break;
+        }
+
+        case 4: { // Realiza busca sequencial no cadastro de alunos.
+            int continuarC4 = 1;
+            do {
+                indiceMenu++;
+                fputs("\n================================================================", stdout);
+                printf("[%d]\n", indiceMenu);
+                printf("[%d] Total de Elementos\n[%d] Elementos preenchidos\n", MAX, CadAlunos.quantElementos);
+                char* optionsBusca[] = {
+                    "Por Matrícula",
+                    "Por Nome"
+                };
+                int menuBusca = sizeof(optionsBusca) / sizeof(optionsBusca[0]);
+
+                switch (menu(optionsBusca, menuBusca, false)) {
+                case 1: { // Busca por matrícula.
+                    int valor = 0;
+                    printf("Digite a matrícula para buscar [Primeira Correspondencia] >>> ");
+                    scanf("%d", &valor);
+                    resultado resultadoSeg = buscaSequencialAluno(&CadAlunos, valor);
+                    if (resultadoSeg.encontrado) {
+                        printf("\nMatrícula %d encontrada na posição %d.\n\n", valor, resultadoSeg.position + 1);
+                    } else {
+                        printf("\n<#### Matrícula %d não encontrada ####>\n\n", valor);
+                    }
+                    break;
+                }
+                case 2: { // Busca por nome.
+                    char nome[50];
+                    printf("Digite o nome para buscar >>> ");
+                    scanf("%s", nome);
+                    resultado resultadoSeg = buscaSequencialAlunoNome(&CadAlunos, nome);
+                    if (resultadoSeg.encontrado) {
+                        printf("\nNome %s encontrado na posição %d.\n\n", nome, resultadoSeg.position + 1);
+                    } else {
+                        printf("\n<#### Nome %s não encontrado ####>\n\n", nome);
+                    }
+                    break;
+                }
+                case -1:
+                    continuarC4 = 0;
+                    break;
+                }
+                indiceMenu--;
+            } while (continuarC4 == 1);
+            break;
+        }
+        case 5: { // Realiza busca binária no cadastro de alunos.
+            int continuarC4 = 1;
+            do {
+                indiceMenu++;
+                fputs("\n================================================================", stdout);
+                printf("[%d]\n", indiceMenu);
+                printf("[%d] Total de Elementos\n[%d] Elementos preenchidos\n", MAX, CadAlunos.quantElementos);
+                char* optionsBusca[] = {
+                    "Por Matrícula",
+                    "Por Nome"
+                };
+                int menuBusca = sizeof(optionsBusca) / sizeof(optionsBusca[0]);
+
+                switch (menu(optionsBusca, menuBusca, false)) {
+                case 1: { // Busca por matrícula.
+                    int valor = 0;
+                    printf("Digite a matrícula para buscar [Ordenação automática][Primeira Correspondencia] >>> ");
+                    scanf("%d", &valor);
+                    ordenarAlunoByMatricula(&CadAlunos);
+                    resultado resultadoBin = buscaBinariaAluno(&CadAlunos, valor);
+                    if (resultadoBin.encontrado) {
+                        printf("\nMatrícula %d encontrada na posição %d.\n\n", valor, resultadoBin.position + 1);
+                    } else {
+                        printf("\n<#### Matrícula %d não encontrada ####>\n\n", valor);
+                    }
+                    break;
+                }
+                case 2: { // Busca por nome.
+                    char nome[50];
+                    printf("Digite o nome para buscar [Ordenação automática] >>> ");
+                    scanf("%s", nome);
+                    ordenarAlunoByName(&CadAlunos);
+                    resultado resultadoBin = buscaBinariaAlunoNome(&CadAlunos, nome);
+                    if (resultadoBin.encontrado) {
+                        printf("\nNome %s encontrado na posição %d.\n\n", nome, resultadoBin.position + 1);
+                    } else {
+                        printf("\n<#### Nome %s não encontrado ####>\n\n", nome);
+                    }
+                    break;
+                }
+                case -1:
+                    continuarC4 = 0;
+                    break;
+                }
+                indiceMenu--;
+            } while (continuarC4 == 1);
+            break;
+        }
+        case 6: { // Imprime informações dos alunos cadastrados.
+            for (int i = CadAlunos.front; i < CadAlunos.rear; i++) {
                 printf("----------------------------\n");
-                break;
+                imprimirAluno(&CadAlunos.alunos[i]);
             }
-            case 7:{
-                for (int i = CadAlunos.front; i < CadAlunos.rear; i++) {
-                    imprimirAlunoNotaFinal(&CadAlunos.alunos[i]);
-                }
-                break;
+            printf("----------------------------\n");
+            break;
+        }
+        case 7: {
+            for (int i = CadAlunos.front; i < CadAlunos.rear; i++) {
+                imprimirAlunoNotaFinal(&CadAlunos.alunos[i]);
             }
-            case 8: {
-                double soma = 0;
-                for (int i = CadAlunos.front; i < CadAlunos.rear; i++) {
-                    soma += imprimirNotaFinal(&CadAlunos.alunos[i]);
-                }
-                double mediaClass = soma / CadAlunos.quantElementos;
-                printf("Nota da Média da Sala: %.2lf\n", mediaClass);
-                break;
+            break;
+        }
+        case 8: {
+            double soma = 0;
+            for (int i = CadAlunos.front; i < CadAlunos.rear; i++) {
+                soma += imprimirNotaFinal(&CadAlunos.alunos[i]);
             }
-            case 9: {
-                if (isVazio(&CadAlunos)) {
-                    fputs("<#### A fila está vazia ####>\n\n", stdout);
-                } else {
-                    fputs("<#### A fila contém item(s) ####>\n\n", stdout);
-                }
-                break;
+            double mediaClass = soma / CadAlunos.quantElementos;
+            printf("Nota da Média da Sala: %.2lf\n", mediaClass);
+            break;
+        }
+        case 9: {
+            if (isVazio(&CadAlunos)) {
+                fputs("<#### A fila está vazia ####>\n\n", stdout);
+            } else {
+                fputs("<#### A fila contém item(s) ####>\n\n", stdout);
             }
-            case 10: {
-                if (isCheio(&CadAlunos) == 1) {
-                    fputs("<#### A pilha está cheia ####>\n\n", stdout);
-                } else {
-                    fputs("<#### A pilha não está cheia ####>\n\n", stdout);
-                }
-                break;
+            break;
+        }
+        case 10: {
+            if (isCheio(&CadAlunos) == 1) {
+                fputs("<#### A pilha está cheia ####>\n\n", stdout);
+            } else {
+                fputs("<#### A pilha não está cheia ####>\n\n", stdout);
             }
-            case -1:
-                continuarC1 = 0; // Sai do loop de operações com alunos.
-                break;
-            default:
-                break;
+            break;
+        }
+        case -1:
+            continuarC1 = 0; // Sai do loop de operações com alunos.
+            break;
+        default:
+            break;
         }
         indiceMenu--;
     } while (continuarC1 == 1);
