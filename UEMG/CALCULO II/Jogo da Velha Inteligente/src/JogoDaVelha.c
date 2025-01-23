@@ -295,7 +295,7 @@ int main () {
             scanf("%d %d", &cordenadaLinha, &cordenadaColuna);
             // rodadaIA(&cordenadaLinha, &cordenadaColuna, numeroASerGuardado, tableJogoDaVelha, 0);
         } else {
-            rodadaIA(&cordenadaLinha, &cordenadaColuna, numeroASerGuardado, tableJogoDaVelha, 1, 0.8);
+            rodadaIA(&cordenadaLinha, &cordenadaColuna, numeroASerGuardado, tableJogoDaVelha, 1, 0.95);
         }
 
         printf("\n");
@@ -346,7 +346,7 @@ int main () {
         if ((infinita == 0 && contarRodada == 9)) {
             break;
         }
-            
+         
     } while ((cordenadaLinha > 0 || cordenadaColuna > 0) && vitoria[0] == 0);
 
     

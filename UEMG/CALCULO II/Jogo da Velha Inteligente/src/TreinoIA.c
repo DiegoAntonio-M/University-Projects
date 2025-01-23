@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
+#include <direct.h>
 #include "rodadaIA.c"
 #include "stdbool.h"
 
@@ -40,6 +41,7 @@ void verificarVitoria(char tableJogoDaVelha[3][3][2], char *vitoria) {
 }
 
 void salvar_rede(RedeNeural *rn, const char *filename) {
+    _mkdir("./Jogo da Velha Inteligente/Models");
     FILE *file = fopen(filename, "wb");
     if (file == NULL) {
         perror("Erro ao abrir o arquivo para salvar");
@@ -137,6 +139,7 @@ double calcularMSE(double *alvo, Neuronio *saida, int tamanho) {
 }
 
 void registrarLogCusto(const char *filename, int epocaRN, int epoca, int exemplo, double custo, int numRN, double threshold) {
+    
     FILE *log_file = fopen(filename, "a");
     if (log_file == NULL) {
         perror("Erro ao abrir o arquivo de log");
